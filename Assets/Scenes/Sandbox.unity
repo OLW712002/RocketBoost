@@ -533,7 +533,41 @@ MonoBehaviour:
       m_Action: Thrush
       m_Flags: 0
     m_Flags: 0
+  rotate:
+    m_Name: Rotate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0d51f4db-02f4-4304-b793-79c90d7d7829
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: Keyboard
+      m_Id: fe4dc427-84b9-4665-bcac-60239d0a0525
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 68188d5a-a9ba-4736-87fd-06ead6968417
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 6520603c-013e-4cf5-aad8-6d5e7a142a5d
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate
+      m_Flags: 8
+    m_Flags: 0
   thrushForce: 30
+  rotateSpeed: 1
 --- !u!4 &421480171
 Transform:
   m_ObjectHideFlags: 0
