@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessRotate()
     {
         float rotateValue = rotate.ReadValue<float>();
-        transform.Rotate(Vector3.forward * rotateValue * rotateSpeed); 
+        rb.freezeRotation = true;
+        transform.Rotate(Vector3.forward * rotateValue * rotateSpeed);
+        rb.freezeRotation = false;
     }
 }
