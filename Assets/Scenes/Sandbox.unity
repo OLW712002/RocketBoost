@@ -53222,10 +53222,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc496e0234cf66941a4cfef554eb93f5, type: 3}
   m_Resource: {fileID: 8300000, guid: fc496e0234cf66941a4cfef554eb93f5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -53410,6 +53410,10 @@ PrefabInstance:
       objectReference: {fileID: 7515526912956163633, guid: ad39e1743733cb048b438c089ba4ec23, type: 3}
     - target: {fileID: 3122759367686266004, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122759367686266004, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122759367686266004, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
