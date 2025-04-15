@@ -9,6 +9,9 @@ public class PlayerCollision : MonoBehaviour
             case "Friendly":
                 Debug.Log("DoNothing");
                 break;
+            case "Finish":
+                Debug.Log("YouWin");
+                break;
             case "Fuel":
                 Debug.Log("Refill");
                 break;
