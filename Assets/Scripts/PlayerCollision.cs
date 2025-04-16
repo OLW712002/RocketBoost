@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -17,7 +18,13 @@ public class PlayerCollision : MonoBehaviour
                 break;
             default:
                 Destroy(gameObject);
+                Invoke("ReloadScene", 1f);
                 break;
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
