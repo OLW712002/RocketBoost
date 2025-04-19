@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("DoNothing");
                 break;
             case "Finish":
-                Debug.Log("YouWin");
+                NextScene();
                 break;
             case "Fuel":
                 Debug.Log("Refill");
@@ -26,5 +26,13 @@ public class PlayerCollision : MonoBehaviour
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void NextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        currentSceneIndex++;
+        if (currentSceneIndex == SceneManager.sceneCount) currentSceneIndex = 0;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
