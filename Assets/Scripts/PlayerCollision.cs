@@ -31,8 +31,8 @@ public class PlayerCollision : MonoBehaviour
     void NextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        currentSceneIndex++;
-        if (currentSceneIndex == SceneManager.sceneCount) currentSceneIndex = 0;
-        SceneManager.LoadScene(currentSceneIndex);
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCount) nextSceneIndex = 0;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
