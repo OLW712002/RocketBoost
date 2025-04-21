@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
+    [SerializeField] float reloadSceneDelay = 1f;
+    [SerializeField] float nextSceneDelay = 1f;
+
     private void OnCollisionEnter(Collision collision)
     {
        switch (collision.gameObject.tag)
@@ -11,14 +14,15 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("DoNothing");
                 break;
             case "Finish":
-                NextScene();
+                GetComponent<PlayerMovement>().enabled = false;
+                Invoke("NextScene", nextSceneDelay);
                 break;
             case "Fuel":
                 Debug.Log("Refill");
                 break;
             default:
-                Destroy(gameObject);
-                Invoke("ReloadScene", 1f);
+                gameObject.SetActive(false);
+                Invoke("ReloadScene", reloadSceneDelay);
                 break;
         }
     }
