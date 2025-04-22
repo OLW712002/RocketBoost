@@ -3,9 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Thrush")]
     [SerializeField] InputAction thrush;
-    [SerializeField] InputAction rotate;
     [SerializeField] float thrushForce = 10f;
+
+    [Header("Rotate")]
+    [SerializeField] InputAction rotate;
     [SerializeField] float rotateSpeed = 1f;
 
     Rigidbody rb;
