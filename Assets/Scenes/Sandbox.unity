@@ -53586,6 +53586,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122759367686266004, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122759367686266004, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Constraints
       value: 56
       objectReference: {fileID: 0}
@@ -53707,6 +53711,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 123524809987349132, guid: 2bac497cb1939354a8a425a8bceeb9ba, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5842613729963676465, guid: 2bac497cb1939354a8a425a8bceeb9ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.21
@@ -53750,6 +53758,10 @@ PrefabInstance:
     - target: {fileID: 6511908844883298699, guid: 2bac497cb1939354a8a425a8bceeb9ba, type: 3}
       propertyPath: m_Name
       value: Fighter_03_Engine_Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511908844883298699, guid: 2bac497cb1939354a8a425a8bceeb9ba, type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53807,10 +53819,6 @@ PrefabInstance:
     - target: {fileID: 7551500481271376043, guid: 95d155431c5a2564a80375f1e46a4442, type: 3}
       propertyPath: m_Name
       value: LauchPad
-      objectReference: {fileID: 0}
-    - target: {fileID: 7551500481271376043, guid: 95d155431c5a2564a80375f1e46a4442, type: 3}
-      propertyPath: m_TagString
-      value: Friendly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
