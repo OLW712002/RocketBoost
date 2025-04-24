@@ -53191,11 +53191,16 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 503345426}
-  m_VersionIndex: 33
+  m_VersionIndex: 42
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!23 &1329395167 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2625065060751719566, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+  m_PrefabInstance: {fileID: 4191815556625411456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1332690338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1742392454517054212, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
@@ -53324,8 +53329,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc496e0234cf66941a4cfef554eb93f5, type: 3}
-  m_Resource: {fileID: 8300000, guid: fc496e0234cf66941a4cfef554eb93f5, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -53423,8 +53428,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1caabf1619675b48853ed94c51f9eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSceneDelay: 1
+  reloadSceneDelay: 2
   nextSceneDelay: 1
+  crashSFX: {fileID: 8300000, guid: 8141fc1db55be4f449dafc6dda85e7c1, type: 3}
+  successSFX: {fileID: 8300000, guid: fc89198e906186f4ca87de447d571c96, type: 3}
+  spaceShipRenderer: {fileID: 1329395167}
 --- !u!1 &1818736443
 GameObject:
   m_ObjectHideFlags: 0
@@ -53541,6 +53549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 45687586096511765, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_Name
+      value: SpacePod
+      objectReference: {fileID: 0}
     - target: {fileID: 255277507211020356, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -53553,6 +53565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1742392454517054212, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1856532421251138727, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -53564,6 +53580,10 @@ PrefabInstance:
     - target: {fileID: 2501393309093256527, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625065060751719566, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625065060751719566, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Materials.Array.size
@@ -53613,6 +53633,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4570844330663255387, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_Name
+      value: SpaceShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570844330663255387, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5618570828822593051, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -53629,6 +53657,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.0065611005
       objectReference: {fileID: 0}
+    - target: {fileID: 6237844420806451422, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
+      propertyPath: thrushSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: fc496e0234cf66941a4cfef554eb93f5, type: 3}
     - target: {fileID: 6283595835408560970, guid: 20201ec551b7eb74aaee2c0e6a993d0b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -53819,6 +53851,10 @@ PrefabInstance:
     - target: {fileID: 7551500481271376043, guid: 95d155431c5a2564a80375f1e46a4442, type: 3}
       propertyPath: m_Name
       value: LauchPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551500481271376043, guid: 95d155431c5a2564a80375f1e46a4442, type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

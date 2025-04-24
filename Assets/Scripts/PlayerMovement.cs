@@ -6,18 +6,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Thrush")]
     [SerializeField] InputAction thrush;
     [SerializeField] float thrushForce = 10f;
+    [SerializeField] AudioClip thrushSFX;
 
     [Header("Rotate")]
     [SerializeField] InputAction rotate;
     [SerializeField] float rotateSpeed = 1f;
 
     Rigidbody rb;
-    AudioSource thrushSFX;
+    AudioSource audioSource;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        thrushSFX = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -37,11 +38,11 @@ public class PlayerMovement : MonoBehaviour
         if (thrush.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrushForce);
-            if (thrushSFX != null && !thrushSFX.isPlaying) thrushSFX.Play();
+            if (audioSource != null && !audioSource.isPlaying) audioSource.PlayOneShot(thrushSFX);
         }
         else
         {
-            if (thrushSFX != null && thrushSFX.isPlaying) thrushSFX.Stop();
+            //if (audioSource != null && audioSource.isPlaying) audioSource.Stop();
         }
         
     }
