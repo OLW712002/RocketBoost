@@ -6,17 +6,16 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] float reloadSceneDelay = 1f;
     [SerializeField] float nextSceneDelay = 1f;
+    [SerializeField] AudioSource sfxSource;
     [SerializeField] AudioClip crashSFX;
     [SerializeField] AudioClip successSFX;
     [SerializeField] MeshRenderer spaceShipRenderer;
-
-    AudioSource audioSource;
 
     bool isPlaySFX = false;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,7 +48,7 @@ public class PlayerCollision : MonoBehaviour
     IEnumerator PlaySFXOnce(AudioClip audioClip)
     {
         isPlaySFX = true;
-        audioSource.PlayOneShot(audioClip);
+        sfxSource.PlayOneShot(audioClip);
         yield return new WaitForSeconds(audioClip.length);
         isPlaySFX = false;
     }
