@@ -12,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] MeshRenderer spaceShipRenderer;
 
     bool isPlaySFX = false;
+    bool isControlable = true;
 
     private void Start()
     {
@@ -20,12 +21,15 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isControlable) return;
+
        switch (collision.gameObject.tag)
         {
             case "Friendly":
                 PlaySFX(successSFX);
                 break;
             case "Finish":
+                isControlable = false;
                 GetComponent<PlayerMovement>().enabled = false;
                 Invoke("NextScene", nextSceneDelay);
                 break;
@@ -33,6 +37,7 @@ public class PlayerCollision : MonoBehaviour
                 Debug.Log("Refill");
                 break;
             default:
+                isControlable = false;
                 PlaySFX(crashSFX);
                 spaceShipRenderer.enabled = false;
                 Invoke("ReloadScene", reloadSceneDelay);
@@ -64,5 +69,10 @@ public class PlayerCollision : MonoBehaviour
         int nextSceneIndex = currentSceneIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCount) nextSceneIndex = 0;
         SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    public bool CheckControlable()
+    {
+        return isControlable;
     }
 }

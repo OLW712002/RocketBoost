@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (thrushSource != null && thrushSource.isPlaying) thrushSource.Stop();
+            if ((thrushSource != null && thrushSource.isPlaying) || !GetComponent<PlayerCollision>().CheckControlable()) thrushSource.Stop();
         }
         
     }
