@@ -29,20 +29,32 @@ public class PlayerCollision : MonoBehaviour
                 PlaySFX(successSFX);
                 break;
             case "Finish":
-                isControlable = false;
-                GetComponent<PlayerMovement>().enabled = false;
-                Invoke("NextScene", nextSceneDelay);
+                StartCoroutine(FinishProgress());
                 break;
             case "Fuel":
                 Debug.Log("Refill");
                 break;
             default:
-                isControlable = false;
-                PlaySFX(crashSFX);
-                spaceShipRenderer.enabled = false;
-                Invoke("ReloadScene", reloadSceneDelay);
+                StartCoroutine(CrashProgress());
                 break;
         }
+    }
+
+    IEnumerator FinishProgress()
+    {
+        isControlable = false;
+        GetComponent<PlayerMovement>().enabled = false;
+        yield return new WaitForSeconds(nextSceneDelay);
+        NextScene();
+    }
+
+    IEnumerator CrashProgress()
+    {
+        isControlable = false;
+        PlaySFX(crashSFX);
+        spaceShipRenderer.enabled = false;
+        yield return new WaitForSeconds(reloadSceneDelay);
+        ReloadScene();
     }
 
     void PlaySFX(AudioClip audioClip)
