@@ -7,9 +7,16 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] float reloadSceneDelay = 1f;
     [SerializeField] float nextSceneDelay = 1f;
     [SerializeField] AudioSource sfxSource;
-    [SerializeField] AudioClip crashSFX;
-    [SerializeField] AudioClip successSFX;
     [SerializeField] MeshRenderer spaceShipRenderer;
+
+    [Header("Crash")]
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] ParticleSystem crashParticles;
+
+    [Header("Success")]
+    [SerializeField] AudioClip successSFX;
+    [SerializeField] ParticleSystem successParticles;
+    
 
     bool isPlaySFX = false;
     bool isControlable = true;
@@ -26,7 +33,6 @@ public class PlayerCollision : MonoBehaviour
        switch (collision.gameObject.tag)
         {
             case "Friendly":
-                PlaySFX(successSFX);
                 break;
             case "Finish":
                 StartCoroutine(FinishProgress());
@@ -42,7 +48,9 @@ public class PlayerCollision : MonoBehaviour
 
     IEnumerator FinishProgress()
     {
+        successParticles.Play();
         isControlable = false;
+        PlaySFX(successSFX);
         GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(nextSceneDelay);
         NextScene();
@@ -50,6 +58,7 @@ public class PlayerCollision : MonoBehaviour
 
     IEnumerator CrashProgress()
     {
+        crashParticles.Play();
         isControlable = false;
         PlaySFX(crashSFX);
         spaceShipRenderer.enabled = false;
