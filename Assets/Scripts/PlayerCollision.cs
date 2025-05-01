@@ -28,7 +28,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isControlable) return;
+       if (!isControlable) return;
 
        switch (collision.gameObject.tag)
         {
@@ -51,7 +51,7 @@ public class PlayerCollision : MonoBehaviour
         successParticles.Play();
         isControlable = false;
         PlaySFX(successSFX);
-        GetComponent<PlayerMovement>().enabled = false;
+        //GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(nextSceneDelay);
         NextScene();
     }

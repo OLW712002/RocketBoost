@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float rotateSpeed = 1f;
 
     Rigidbody rb;
+    PlayerCollision playerCollision;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerCollision = GetComponent<PlayerCollision>();
     }
 
     private void OnEnable()
@@ -27,8 +29,16 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        ProcessThrush();
-        ProcessRotate();
+        if (playerCollision.CheckControlable())
+        {
+            ProcessThrush();
+            ProcessRotate();
+        }
+        else if (!playerCollision.CheckControlable())
+        {
+            Debug.Log("mute");
+            thrushSource.Stop();
+        }
     }
 
     private void ProcessThrush()
@@ -40,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if ((thrushSource != null && thrushSource.isPlaying) || !GetComponent<PlayerCollision>().CheckControlable()) thrushSource.Stop();
+            if ((thrushSource != null && thrushSource.isPlaying)) thrushSource.Stop();
         }
         
     }
