@@ -7,13 +7,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] InputAction thrush;
     [SerializeField] float thrushForce = 10f;
     [SerializeField] AudioSource thrushSource;
+    [SerializeField] ParticleSystem thrushParticle;
 
     [Header("Rotate")]
     [SerializeField] InputAction rotate;
     [SerializeField] float rotateSpeed = 1f;
+    [SerializeField] ParticleSystem leftSideParticle;
+    [SerializeField] ParticleSystem rightSideParticle;
 
     Rigidbody rb;
     PlayerCollision playerCollision;
+
+    bool isRotating = false;
 
     private void Start()
     {
@@ -36,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!playerCollision.CheckControlable())
         {
-            Debug.Log("mute");
             thrushSource.Stop();
         }
     }
@@ -46,10 +50,12 @@ public class PlayerMovement : MonoBehaviour
         if (thrush.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrushForce);
+            thrushParticle.Play();
             if (thrushSource != null && !thrushSource.isPlaying) thrushSource.Play();
         }
         else
         {
+            thrushParticle.Stop();
             if ((thrushSource != null && thrushSource.isPlaying)) thrushSource.Stop();
         }
         
@@ -58,8 +64,24 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessRotate()
     {
         float rotateValue = rotate.ReadValue<float>();
+        if (rotateValue != 0) isRotating = true;
         rb.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotateValue * rotateSpeed);
         rb.freezeRotation = false;
+
+        if (isRotating) switch (rotateValue)
+        {
+            case -1:
+                leftSideParticle.Play();
+                break;
+            case 1:
+                rightSideParticle.Play();
+                break;
+            default:
+                leftSideParticle.Stop();
+                rightSideParticle.Stop();
+                isRotating = false;
+                break;
+        }
     }
 }
