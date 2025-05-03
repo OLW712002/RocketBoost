@@ -73,9 +73,11 @@ public class PlayerMovement : MonoBehaviour
         {
             case -1:
                 leftSideParticle.Play();
+                rightSideParticle.Stop();
                 break;
             case 1:
                 rightSideParticle.Play();
+                leftSideParticle.Stop();
                 break;
             default:
                 leftSideParticle.Stop();
