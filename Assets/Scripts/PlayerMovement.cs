@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (thrush.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrushForce);
-            thrushParticle.Play();
+            if (thrushParticle != null && !thrushParticle.isPlaying) thrushParticle.Play();
             if (thrushSource != null && !thrushSource.isPlaying) thrushSource.Play();
         }
         else
@@ -72,17 +72,23 @@ public class PlayerMovement : MonoBehaviour
         if (isRotating) switch (rotateValue)
         {
             case -1:
-                leftSideParticle.Play();
-                rightSideParticle.Stop();
+                    if (leftSideParticle != null && !leftSideParticle.isPlaying)
+                    {
+                        leftSideParticle.Play();
+                        rightSideParticle.Stop();
+                    }                        
                 break;
             case 1:
-                rightSideParticle.Play();
-                leftSideParticle.Stop();
+                    if (rightSideParticle != null && !rightSideParticle.isPlaying)
+                    {
+                        rightSideParticle.Play();
+                        leftSideParticle.Stop();
+                    }                        
                 break;
             default:
-                leftSideParticle.Stop();
-                rightSideParticle.Stop();
-                isRotating = false;
+                    leftSideParticle.Stop();
+                    rightSideParticle.Stop();
+                    isRotating = false;
                 break;
         }
     }
