@@ -68,28 +68,47 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotateValue * rotateSpeed);
         rb.freezeRotation = false;
+        ProcessRotateParticle(rotateValue);
+    }
 
+    private void ProcessRotateParticle(float rotateValue)
+    {
         if (isRotating) switch (rotateValue)
+            {
+                case -1:
+                    LeftSideParticle();
+                    break;
+                case 1:
+                    RightSideParticle();
+                    break;
+                default:
+                    StopRotateParticle();
+                    break;
+            }
+    }
+
+    private void LeftSideParticle()
+    {
+        if (leftSideParticle != null && !leftSideParticle.isPlaying)
         {
-            case -1:
-                    if (leftSideParticle != null && !leftSideParticle.isPlaying)
-                    {
-                        leftSideParticle.Play();
-                        rightSideParticle.Stop();
-                    }                        
-                break;
-            case 1:
-                    if (rightSideParticle != null && !rightSideParticle.isPlaying)
-                    {
-                        rightSideParticle.Play();
-                        leftSideParticle.Stop();
-                    }                        
-                break;
-            default:
-                    leftSideParticle.Stop();
-                    rightSideParticle.Stop();
-                    isRotating = false;
-                break;
+            leftSideParticle.Play();
+            rightSideParticle.Stop();
         }
+    }
+
+    private void RightSideParticle()
+    {
+        if (rightSideParticle != null && !rightSideParticle.isPlaying)
+        {
+            rightSideParticle.Play();
+            leftSideParticle.Stop();
+        }
+    }
+
+    private void StopRotateParticle()
+    {
+        leftSideParticle.Stop();
+        rightSideParticle.Stop();
+        isRotating = false;
     }
 }
