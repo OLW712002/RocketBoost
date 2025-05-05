@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -21,9 +22,34 @@ public class PlayerCollision : MonoBehaviour
     bool isPlaySFX = false;
     bool isControlable = true;
 
-    private void Start()
+    KeyCode[] shortcutKey = new KeyCode[] { KeyCode.L };
+
+    private void Update()
     {
-        //audioSource = GetComponent<AudioSource>();
+        DetectKeyPressed();
+    }
+
+    private void DetectKeyPressed()
+    {
+        foreach (KeyCode key in shortcutKey)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                switch (key) //if add more case, must update shortcutKey
+                {
+                    case KeyCode.L:
+                        ProcessLKey();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+
+    private void ProcessLKey()
+    {
+        NextScene();
     }
 
     private void OnCollisionEnter(Collision collision)
