@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         else if (!playerCollision.CheckControlable())
         {
             thrushSource.Stop();
+            StopRotateParticle();
+            thrushParticle.Stop();
         }
     }
 

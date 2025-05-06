@@ -21,8 +21,9 @@ public class PlayerCollision : MonoBehaviour
 
     bool isPlaySFX = false;
     bool isControlable = true;
+    bool isCollidable = true;
 
-    KeyCode[] shortcutKey = new KeyCode[] { KeyCode.L };
+    KeyCode[] shortcutKey = new KeyCode[] { KeyCode.L , KeyCode.C};
 
     private void Update()
     {
@@ -40,6 +41,9 @@ public class PlayerCollision : MonoBehaviour
                     case KeyCode.L:
                         ProcessLKey();
                         break;
+                    case KeyCode.C:
+                        ProcessCKey();
+                        break;
                     default:
                         break;
                 }
@@ -52,9 +56,14 @@ public class PlayerCollision : MonoBehaviour
         NextScene();
     }
 
+    private void ProcessCKey()
+    {
+        isCollidable = !isCollidable;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-       if (!isControlable) return;
+       if (!isControlable || !isCollidable) return;
 
        switch (collision.gameObject.tag)
         {
