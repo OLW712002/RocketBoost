@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -23,42 +24,15 @@ public class PlayerCollision : MonoBehaviour
     bool isControlable = true;
     bool isCollidable = true;
 
-    KeyCode[] shortcutKey = new KeyCode[] { KeyCode.L , KeyCode.C};
-
     private void Update()
     {
-        DetectKeyPressed();
+        RespondToDebugKey();
     }
 
-    private void DetectKeyPressed()
+    private void RespondToDebugKey()
     {
-        foreach (KeyCode key in shortcutKey)
-        {
-            if (Input.GetKeyDown(key))
-            {
-                switch (key) //if add more case, must update shortcutKey
-                {
-                    case KeyCode.L:
-                        ProcessLKey();
-                        break;
-                    case KeyCode.C:
-                        ProcessCKey();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-    }
-
-    private void ProcessLKey()
-    {
-        NextScene();
-    }
-
-    private void ProcessCKey()
-    {
-        isCollidable = !isCollidable;
+        if (Keyboard.current.lKey.wasPressedThisFrame) NextScene();
+        else if (Keyboard.current.cKey.wasPressedThisFrame) isCollidable = !isCollidable;
     }
 
     private void OnCollisionEnter(Collision collision)
