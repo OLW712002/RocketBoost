@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Flags: 0
   thrushForce: 30
   thrushSource: {fileID: 431280273831506552}
-  thrushParticle: {fileID: 0}
+  thrushParticle: {fileID: 893386194629278494}
   rotate:
     m_Name: Rotate
     m_Type: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   rotateSpeed: 1
-  leftSideParticle: {fileID: 0}
-  rightSideParticle: {fileID: 0}
+  leftSideParticle: {fileID: 3547996630484836373}
+  rightSideParticle: {fileID: 5747165606764355654}
 --- !u!54 &3122759367686266004
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -408,6 +408,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+--- !u!198 &893386194629278494 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+  m_PrefabInstance: {fileID: 1070231149260379746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1066143898534588758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
@@ -470,6 +475,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+--- !u!198 &3547996630484836373 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 4116349654639476343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3716386803621816925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
@@ -602,6 +612,11 @@ PrefabInstance:
 --- !u!4 &5578920435112684046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 5178922674969820708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5747165606764355654 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
   m_PrefabInstance: {fileID: 5178922674969820708}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6114589836358756290
@@ -52827,7 +52842,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 54
+  m_VersionIndex: 141
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
