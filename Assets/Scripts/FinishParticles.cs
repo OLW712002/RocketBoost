@@ -11,18 +11,6 @@ public class FinishParticles : MonoBehaviour
         offset = transform.position - player.position;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void LateUpdate()
     {
         Vector3 worldTargetPos = player.position + offset;
